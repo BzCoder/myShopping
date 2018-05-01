@@ -1,18 +1,18 @@
 package databean;
 
 public class UserBean {
-    int id;
+    String id;
     String name;
     String pwd;
     String email;
     String tel;
     String grade;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

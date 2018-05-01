@@ -29,11 +29,12 @@ public class SQLUtil {
      *
      * @return
      */
-    private Connection getConnection() {
+    public Connection getConnection() {
         Connection conn = null;
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -42,22 +43,7 @@ public class SQLUtil {
         return conn;
     }
 
-    private Connection getSerializeableConnection()
-    {
-        Connection conn  = getConnection();
-        if(conn!=null) {
-            try {
-                conn.setAutoCommit(false);
-                conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return conn;
-        }
-        return null;
-    }
-
-    static void closeSQL(Connection conn, PreparedStatement ps, ResultSet rs) {
+    public static void closeSQL(Connection conn, PreparedStatement ps, ResultSet rs) {
         try {
             if (rs != null) {
                 rs.close();

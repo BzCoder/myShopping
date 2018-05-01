@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>我的购物车</h1>
-    <a href="/LoginController">返回购物大厅</a>
+<a href="/LoginController">返回购物大厅</a>
 <table border="1" style="border-collapse: collapse;width: 600px ;">
     <tr>
         <td>bookid</td>
@@ -33,12 +33,16 @@
     <form action="/ShoppingClServlet?type=update" method="post">
         <tr>
             <input type="hidden" value="<%=book.getId()%>" name="id">
-            <td><%=book.getId()%></td>
-            <td><%=book.getName()%></td>
-            <td><%=book.getPrice()%></td>
-            <td><%=book.getPublisher()%></td>
-            <td><input type="number" name="book_count" value=<%= book.getNums()%>>本</td>
-            <td><a href="/ShoppingClServlet?type=del&id=<%= book.getId()%>">删除</a></td>
+            <td><%=book.getId()%>
+            </td>
+            <td><%=book.getName()%>
+            </td>
+            <td><%=book.getPrice()%>
+            </td>
+            <td><%=book.getPublisher()%>
+            </td>
+            <td><input type="number" name="book_count" value=<%=book.getNums()%>>本</td>
+            <td><a href="/ShoppingClServlet?type=del&id=<%=book.getId()%>">删除</a></td>
         </tr>
         <%
             }
@@ -51,7 +55,7 @@
         <td colspan="6">总价为${BOOK_TOTAL}</td>
     </tr>
     <tr>
-        <td colspan="6"><a href="/GoMyOrder">提交订单</a> </td>
+        <td colspan="6"><a href="/GoMyOrder">提交订单</a></td>
     </tr>
 </table>
 </body>

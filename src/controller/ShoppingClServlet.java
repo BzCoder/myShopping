@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/*
+*增删改查
+ */
 @WebServlet(name = "ShoppingClServlet", urlPatterns = "/ShoppingClServlet")
 public class ShoppingClServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,9 +39,7 @@ public class ShoppingClServlet extends HttpServlet {
                 myCart.updateBook(update_ids[i], update_book_count[i]);
             }
         }
-        request.setAttribute(Const.BOOK_LIST, myCart.showMyCart());
-        request.setAttribute(Const.BOOK_TOTAL, myCart.getMyCartSum());
-        request.getRequestDispatcher("WEB-INF/showMyCart.jsp").forward(request, response);
+        response.sendRedirect("/GoMyCartServlet");
 
     }
 }
